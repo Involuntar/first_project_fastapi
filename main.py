@@ -21,15 +21,17 @@ def show_about_me():
         "email": "ilya.nevolin.2004@mail.ru",
     }
 
-@app.get("/rand_int")
+@app.get("/rnd")
 def get_random(start: int = 1, end: int = 10):
     return {
         "random integer": r.randint(start, end)
     }
 
-@app.get("/square")
+@app.get("/t_square")
 def get_random(a: int=Query(gt=0), b: int=Query(gt=0), c: int=Query(gt=0)):
-    p = (a + b + c)/2
+    P = a + b + c
+    p = P/2
     return {
+        "perimeter": P,
         "square": math.sqrt(p*(p-a)*(p-b)*(p-c))
     }
