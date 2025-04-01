@@ -92,4 +92,8 @@ def get_item(item_id:int=Path(gt=0)):
 
 @app.post("/items")
 def post_item(item: Item):
+    item=dict(item)
+    id = items[-1]['id'] + 1
+    item["id"] = id
+    items.append(item)
     return item
